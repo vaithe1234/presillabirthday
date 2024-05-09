@@ -1,0 +1,106 @@
+ <!doctype html>
+ <html>
+    <head>
+        <title>Go</title>
+    </head>
+    <body>
+        <h2 class="comingsoon">Coming Zoon</h2>
+
+       <div class="counter">
+
+            <div class="box"> 
+            <h2 id="days">00</h2>
+            <small>DAYS</small>
+         </div> 
+
+            <div class="box">
+            <h2 id ="hours">00</h2>
+            <small>HOURS</small>
+             </div>
+
+            <div class="box">
+            <h2 id="minutes">00</h2>
+            <small>MINUTES</small>
+            </div>   
+
+            <div class="box">
+            <h2 id="seconds">00</h2>
+            <small>SECONDS</small>
+            </div>
+       </div>
+     </div>
+    </body>
+ </html>
+
+ <style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body{
+      width: 100vw;
+      height: 100vh;
+       display: flex;
+       justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: 150%;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        background-image: url('../project/1.JPG')
+    
+    }
+    
+
+    .counter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+        
+
+    .box{
+        width: 70px;
+        height: 60px;
+    }
+    .box small{
+        font-size: 13px;
+    }
+  
+ </style>
+
+ <script>
+      // Set the birthday date (e.g., "Month Day, Year HH:MM:SS")
+const birthdayDate = new Date('may 31, 2024 00:00:00').getTime();
+
+// Update the countdown every 1 second
+const timer = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = birthdayDate - now;
+
+    // Calculate days, hours, minutes, and seconds remaining
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the countdown timer
+    document.getElementById('days').innerHTML = days;
+    document.getElementById('hours').innerHTML = hours;
+    document.getElementById('minutes').innerHTML = minutes;
+    document.getElementById('seconds').innerHTML = seconds;
+
+    
+    if (distance<0){
+      clearInterval(timer) 
+     
+        window.location.href='file:///C:/Users/VAITHE/Desktop/project/click.html';
+
+    }    
+}, 1000); 
+
+        
+   
+ </script>
